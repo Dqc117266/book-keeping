@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-
 import com.exmple.book_keeping.data.database.model.Category;
 import com.exmple.book_keeping.data.database.model.Record;
 import com.exmple.book_keeping.data.repository.RecordRepository;
