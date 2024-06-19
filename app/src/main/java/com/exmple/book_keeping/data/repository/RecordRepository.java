@@ -23,6 +23,7 @@ public class RecordRepository {
     public RecordRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
         recordDao = db.recordDao();
+        categoryDao = db.categoryDao();
         allRecords = recordDao.getAllRecords();
         allCategories = categoryDao.getAllCategories();
     }

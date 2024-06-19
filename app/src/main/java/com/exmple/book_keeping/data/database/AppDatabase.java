@@ -15,6 +15,7 @@ import java.util.concurrent.Executors;
 @Database(entities = {Record.class, Category.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract RecordDao recordDao();
+    public abstract CategoryDao categoryDao();
 
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
