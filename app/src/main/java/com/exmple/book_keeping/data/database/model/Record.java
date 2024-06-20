@@ -3,9 +3,11 @@ package com.exmple.book_keeping.data.database.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
+import java.io.Serializable;
+
 // Record.java
 @Entity(tableName = "records")
-public class Record {
+public class Record implements Serializable {
     @PrimaryKey(autoGenerate = true)
     public int id;
 

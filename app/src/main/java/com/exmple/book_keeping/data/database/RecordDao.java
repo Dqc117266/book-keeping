@@ -23,7 +23,7 @@ public interface RecordDao {
     @Delete
     void delete(Record record);
 
-    @Query("SELECT * FROM records")
+    @Query("SELECT * FROM records ORDER BY id DESC")
     LiveData<List<Record>> getAllRecords();
 
     @Query("SELECT * FROM records WHERE type = :type")

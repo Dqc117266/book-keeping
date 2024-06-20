@@ -4,11 +4,13 @@ import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
+
 import com.exmple.book_keeping.databinding.ItemRecordBinding;
 import com.exmple.book_keeping.data.database.model.Record;
 
@@ -18,15 +20,22 @@ public class RecordAdapter extends ListAdapter<Record, RecordAdapter.RecordViewH
         void onItemDelete(Record record);
     }
 
+    public interface OnItemClickListener {
+        void onItemClick(Record record);
+    }
+
     private static final int VIEW_TYPE_YEAR = 1;
     private static final int VIEW_TYPE_MONTH = 2;
     private static final int VIEW_TYPE_RECORD = 3;
 
     private OnItemDeleteListener onItemDeleteListener;
+    private OnItemClickListener onItemClickListener;
 
-    public RecordAdapter(OnItemDeleteListener onItemDeleteListener) {
+    public RecordAdapter(OnItemDeleteListener onItemDeleteListener, OnItemClickListener onItemClickListener) {
         super(DIFF_CALLBACK);
+
         this.onItemDeleteListener = onItemDeleteListener;
+        this.onItemClickListener = onItemClickListener;
     }
 
     @NonNull
@@ -41,6 +50,11 @@ public class RecordAdapter extends ListAdapter<Record, RecordAdapter.RecordViewH
     public void onBindViewHolder(@NonNull RecordViewHolder holder, int position) {
         Record record = getItem(position);
         holder.bind(record);
+        holder.itemView.setOnClickListener(view -> {
+            if (onItemClickListener != null) {
+                onItemClickListener.onItemClick(record);
+            }
+        });
     }
 
     class RecordViewHolder extends RecyclerView.ViewHolder {

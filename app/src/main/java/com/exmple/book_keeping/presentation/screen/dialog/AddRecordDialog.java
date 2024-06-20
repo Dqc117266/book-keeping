@@ -37,7 +37,6 @@ public class AddRecordDialog extends DialogFragment {
     private Spinner spinnerCategory;
     private Spinner spinnerType;
     private EditText editTextAmount;
-    private TextView textViewDate;
     private EditText editTextNote;
 
     public static AddRecordDialog newInstance() {
@@ -80,10 +79,7 @@ public class AddRecordDialog extends DialogFragment {
         spinnerCategory = view.findViewById(R.id.spinnerCategory);
         spinnerType = view.findViewById(R.id.spinnerType);
         editTextAmount = view.findViewById(R.id.editTextAmount);
-        textViewDate = view.findViewById(R.id.textViewDate);
         editTextNote = view.findViewById(R.id.editTextNote);
-
-        textViewDate.setText("");
 
         view.findViewById(R.id.buttonSave).setOnClickListener(v -> saveRecord());
         view.findViewById(R.id.buttonCancel).setOnClickListener(v -> dismiss());

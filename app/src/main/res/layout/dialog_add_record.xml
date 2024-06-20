@@ -5,54 +5,62 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Spinner
-        android:id="@+id/spinnerCategory"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Category" />
-
-    <Spinner
-        android:id="@+id/spinnerType"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Type" />
-
-    <EditText
-        android:id="@+id/editTextAmount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="输入金额"
-        android:inputType="numberDecimal" />
-
-    <TextView
-        android:id="@+id/textViewDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Current Date" />
-
-    <EditText
-        android:id="@+id/editTextNote"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="备注" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="268dp"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="end">
+        android:orientation="vertical">
 
-        <Button
-            android:id="@+id/buttonSave"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="保存" />
+            android:hint="Category" />
 
-        <Button
-            android:id="@+id/buttonCancel"
-            android:layout_width="wrap_content"
+        <Spinner
+            android:id="@+id/spinnerType"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="取消" />
+            android:layout_marginTop="16dp"
+            android:hint="Type" />
+
+        <EditText
+            android:id="@+id/editTextAmount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入金额"
+            android:textSize="16sp"
+            android:inputType="numberDecimal" />
+
+        <EditText
+            android:id="@+id/editTextNote"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:hint="备注" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp"
+            android:gravity="end">
+
+            <Button
+                android:id="@+id/buttonCancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消" />
+
+            <Button
+                android:id="@+id/buttonSave"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:text="保存" />
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </LinearLayout>
