@@ -26,8 +26,20 @@ public interface RecordDao {
     @Query("SELECT * FROM records ORDER BY id DESC")
     LiveData<List<Record>> getAllRecords();
 
+    @Query("SELECT * FROM records")
+    LiveData<List<Record>> getAllRecordsPs();
+
     @Query("SELECT * FROM records WHERE type = :type")
     LiveData<List<Record>> getRecordsByType(String type);
+
+    @Query("SELECT SUM(amount) FROM records WHERE type = '收入'")
+    LiveData<Double> getTotalIncome();
+
+    @Query("SELECT SUM(amount) FROM records WHERE type = '支出'")
+    LiveData<Double> getTotalExpense();
+
+    @Query("SELECT (SELECT SUM(amount) FROM records WHERE type = 'income') - (SELECT SUM(amount) FROM records WHERE type = 'expense')")
+    LiveData<Double> getBalance();
 }
 
 // CategoryDao.java

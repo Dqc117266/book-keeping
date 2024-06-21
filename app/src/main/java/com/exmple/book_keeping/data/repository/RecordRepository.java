@@ -18,19 +18,44 @@ public class RecordRepository {
     private RecordDao recordDao;
     private CategoryDao categoryDao;
     private LiveData<List<Record>> allRecords;
+    private LiveData<List<Record>> allRecordsPs;
     private LiveData<List<Category>> allCategories;
+    private LiveData<Double> totalIncome;
+    private LiveData<Double> totalExpense;
+    private LiveData<Double> balance;
+
 
     public RecordRepository(Application application) {
         AppDatabase db = AppDatabase.getDatabase(application);
         recordDao = db.recordDao();
         categoryDao = db.categoryDao();
         allRecords = recordDao.getAllRecords();
+        allRecordsPs = recordDao.getAllRecordsPs();
         allCategories = categoryDao.getAllCategories();
+        totalIncome = recordDao.getTotalIncome();
+        totalExpense = recordDao.getTotalExpense();
+        balance = recordDao.getBalance();
     }
 
     // Record operations
     public LiveData<List<Record>> getAllRecords() {
         return allRecords;
+    }
+
+    public LiveData<Double> getTotalIncome() {
+        return totalIncome;
+    }
+
+    public LiveData<Double> getTotalExpense() {
+        return totalExpense;
+    }
+
+    public LiveData<List<Record>> getAllRecordsPs() {
+        return allRecordsPs;
+    }
+
+    public LiveData<Double> getBalance() {
+        return balance;
     }
 
     public Future<?> insertRecord(Record record) {
